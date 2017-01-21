@@ -16,6 +16,8 @@
   ],
   "dependencies": {
     "polymer": "^1.7.1",
-    "app-layout": "PolymerElements/app-layout#^0.10.4"
+    "app-layout": "PolymerElements/app-layout#^0.10.4",
+    "paper-listbox": "polymerelements/paper-listbox#^1.1.2",
+    "paper-item": "PolymerElements/paper-item#^1.2.1"
   }
 }

@@ -4,6 +4,8 @@
 <link rel="import" href="../app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../app-layout/app-header/app-header.html">
 <link rel="import" href="../app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../paper-item/paper-item.html" >
+<link rel="import" href="../paper-listbox/paper-listbox.html">
 
 <dom-module id="approvals-page">
     <template>
@@ -16,14 +18,29 @@
             }
             app-drawer {
                 --app-drawer-content-container: {
-                    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
-                    background: antiquewhite;
+                    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.5);
+                    background: darkseagreen;
+                }
+            }
+            paper-listbox {
+                margin-top: 50px;
+                @apply(--layout-flex);
+                background: none;
+            }
+            paper-item {
+                --paper-item: {
+                    padding: 0;
+                    border-bottom: 1px solid rgba(0,0,0,0.1);
+                    margin-top: 1px;
                 }
             }
         </style>
         <app-drawer-layout>
             <app-drawer>
-                <p>List of sections</p>
+                <paper-listbox selected="0">
+                    <paper-item>Components</paper-item>
+                    <paper-item>Translations</paper-item>
+                </paper-listbox>
             </app-drawer>
             <app-header-layout>
                 <p>Inner sections for approvals</p>
