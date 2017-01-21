@@ -1,0 +1,21 @@
+{
+  "name": "approvals-page",
+  "homepage": "https://github.com/Pancake-CMS/approvals-page",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "approvals-page.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.7.1",
+    "app-layout": "PolymerElements/app-layout#^0.10.4"
+  }
+}

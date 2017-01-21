@@ -1,0 +1,39 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../app-layout/app-header/app-header.html">
+<link rel="import" href="../app-layout/app-toolbar/app-toolbar.html">
+
+<dom-module id="approvals-page">
+    <template>
+        <style type="text/css">
+            :host {
+                display: none;
+            }
+            :host([active]){
+                display: block;
+            }
+            app-drawer {
+                --app-drawer-content-container: {
+                    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
+                    background: antiquewhite;
+                }
+            }
+        </style>
+        <app-drawer-layout>
+            <app-drawer>
+                <p>List of sections</p>
+            </app-drawer>
+            <app-header-layout>
+                <p>Inner sections for approvals</p>
+            </app-header-layout>
+        </app-drawer-layout>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'approvals-page'
+        });
+    </script>
+</dom-module>
