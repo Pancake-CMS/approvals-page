@@ -35,22 +35,46 @@
                 }
             }
         </style>
+
+        <app-route
+            route="{{route}}"
+            pattern="/components"
+            data="{{routeData}}"
+            active="{{componentsActive}}"></app-route>
+
         <app-drawer-layout>
             <app-drawer>
-                <paper-listbox selected="0">
+                <paper-listbox selected="{{defaultSelected}}" on-iron-select="_handleSelectionChange">
                     <paper-item>Components</paper-item>
                     <paper-item>Translations</paper-item>
                 </paper-listbox>
             </app-drawer>
             <app-header-layout>
-                <p>Inner sections for approvals</p>
+                <p active$="{{componentsActive}}">Inner sections for approvals</p>
             </app-header-layout>
         </app-drawer-layout>
     </template>
 
     <script>
         Polymer({
-            is: 'approvals-page'
+            is: 'approvals-page',
+
+            properties: {
+                defaultSelected: {
+                    type: Number,
+                    value: 0,
+                    notify: true,
+                    reflectToAttribute: false
+                }
+            },
+
+            _handleSelectionChange: function() {
+                if (this.defaultSelected == 0)
+                    this.set('route.path', '/components');
+                else if (this.defaultSelected == 1) {
+                    this.set('route.path', '/translations');
+                }
+            }
         });
     </script>
 </dom-module>
