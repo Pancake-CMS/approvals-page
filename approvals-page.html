@@ -6,6 +6,7 @@
 <link rel="import" href="../app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../paper-item/paper-item.html" >
 <link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../approvals-pagelist/approvals-pagelist.html">
 
 <dom-module id="approvals-page">
     <template>
@@ -38,9 +39,15 @@
 
         <app-route
             route="{{route}}"
-            pattern="/components"
+            pattern="/approvals/components"
             data="{{routeData}}"
             active="{{componentsActive}}"></app-route>
+
+        <app-route
+            route="{{route}}"
+            pattern="/approvals/translations"
+            data="{{routeData}}"
+            active="{{translationsActive}}"></app-route>
 
         <app-drawer-layout>
             <app-drawer>
@@ -50,7 +57,7 @@
                 </paper-listbox>
             </app-drawer>
             <app-header-layout>
-                <p active$="{{componentsActive}}">Inner sections for approvals</p>
+                <approvals-pagelist route="{{route}}" active$="{{translationsActive}}"></approvals-pagelist>
             </app-header-layout>
         </app-drawer-layout>
     </template>
@@ -62,7 +69,6 @@
             properties: {
                 defaultSelected: {
                     type: Number,
-                    value: 0,
                     notify: true,
                     reflectToAttribute: false
                 }
@@ -70,9 +76,9 @@
 
             _handleSelectionChange: function() {
                 if (this.defaultSelected == 0)
-                    this.set('route.path', '/components');
+                    this.set('route.path', '/approvals/components');
                 else if (this.defaultSelected == 1) {
-                    this.set('route.path', '/translations');
+                    this.set('route.path', '/approvals/translations');
                 }
             }
         });
