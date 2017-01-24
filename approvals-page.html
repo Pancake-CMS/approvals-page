@@ -7,6 +7,7 @@
 <link rel="import" href="../paper-item/paper-item.html" >
 <link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../approvals-pagelist/approvals-pagelist.html">
+<link rel="import" href="../review-page/review-page.html">
 
 <dom-module id="approvals-page">
     <template>
@@ -49,6 +50,12 @@
             data="{{routeData}}"
             active="{{translationsActive}}"></app-route>
 
+        <app-route
+            pattern="/approvals/pages"
+            active="{{reviewPageActive}}"
+            route="{{route}}"
+            tail="{{subroute}}"></app-route>
+
         <app-drawer-layout>
             <app-drawer>
                 <paper-listbox selected="{{defaultSelected}}" on-iron-select="_handleSelectionChange">
@@ -58,6 +65,7 @@
             </app-drawer>
             <app-header-layout>
                 <approvals-pagelist route="{{route}}" active$="{{translationsActive}}"></approvals-pagelist>
+                <review-page route="{{route}}" active$="{{reviewPageActive}}" path="{{route.path}}"></review-page>
             </app-header-layout>
         </app-drawer-layout>
     </template>
